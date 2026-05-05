@@ -1,8 +1,8 @@
 import sys
-import typing
+from typing import TextIO
 
 
-def print_content(f: typing.IO) -> None:
+def print_content(f: TextIO) -> None:
     print("---")
     content: str = f.read()
     print(content, end="")
@@ -20,7 +20,7 @@ def main() -> None:
     print(f"Accessing file '{filename}'")
 
     try:
-        f: typing.IO = open(filename, "r")
+        f: TextIO = open(filename, "r")
 
         print_content(f)
 

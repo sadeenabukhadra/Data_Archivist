@@ -1,15 +1,15 @@
 import sys
-import typing
+from typing import TextIO
 
 
-def print_content(f1: typing.IO) -> None:
+def print_content(f1: TextIO) -> None:
     print("---")
     content: str = f1.read()
     print(content, end="")
     print("---")
 
 
-def transform_data(f2: typing.IO) -> str:
+def transform_data(f2: TextIO) -> str:
     print("Transform data:")
     print("---")
     transformed: str = ""
@@ -30,10 +30,10 @@ def main() -> None:
     filename: str = sys.argv[1]
     print(f"Accessing file {filename}")
     try:
-        f1: typing.IO = open(filename, "r")
+        f1: TextIO = open(filename, "r")
         print_content(f1)
         f1.close()
-        f2: typing.IO = open(filename, "r")
+        f2: TextIO = open(filename, "r")
         transform_data(f2)
         f2.close()
 
